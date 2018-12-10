@@ -37,7 +37,7 @@ class APICalls {
                 print (String(data: newData!, encoding: .utf8)!)
                 
                 //TODO: Get an object based on the received data in JSON format
-               
+                
                 //TODO: Convert the object to a dictionary and call it loginDictionary
                 
                 //Get the unique key of the user
@@ -76,22 +76,22 @@ class APICalls {
                 //Get an object based on the received data in JSON format
                 let jsonObject = try! JSONSerialization.jsonObject(with: data!, options: [])
                 
-                //TODO: Convert that object to a dictionary
+                //TODO: Convert jsonObject to a dictionary
                 
-                //TODO: Get the locations (associated with the key "results")
+                //TODO: get the locations (associated with the key "results") and store it into a constant named resultArray
                 
                 //Check if the result array is nil using guard let, if it's return, otherwise continue
                 guard let array = resultsArray else {return}
                 
                 //TODO: Convert the array above into a valid JSON Data object (so you can use that object to decode it into an array of student locations) and name it dataObject
-
+                
                 //Use JSONDecoder to convert dataObject to an array of structs
                 let studentsLocations = try! JSONDecoder().decode([StudentLocation].self, from: dataObject)
+                
                 
                 completion (studentsLocations)
             }
         }
-        
         task.resume()
     }
 }

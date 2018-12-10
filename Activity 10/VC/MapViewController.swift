@@ -16,7 +16,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         MapView.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         APICalls.getAllLocations () {(studentsLocations) in
             DispatchQueue.main.async {
                 
@@ -51,7 +53,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             
         } //end getAllLocations
-        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

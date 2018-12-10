@@ -28,7 +28,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Activity_10_Solution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Activity_10" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,40 +91,35 @@
         <!--Map View Controller-->
         <scene sceneID="3vy-nh-4u3">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="JOV-gd-fQx" customClass="MapViewController" customModule="Activity_10_Solution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="JOV-gd-fQx" customClass="MapViewController" customModule="Activity_10" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bp1-lH-eMG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpH-m3-BZn">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePZ-1a-jTX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="nEv-Th-0i5"/>
-                                </constraints>
                                 <items>
-                                    <navigationItem title="Studying Locations" id="jT4-uy-D3Q">
-                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="dQj-JK-WnV" userLabel="Logout"/>
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="1FN-vm-81R"/>
-                                            <barButtonItem systemItem="refresh" id="kIO-w0-kU7"/>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
+                                    <barButtonItem title="LOGOUT" id="crD-LI-txv"/>
+                                    <barButtonItem title="Studying Locations" width="206.5" id="9XF-Oe-sA6" userLabel="Studying Locations"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1ao-HE-tYH"/>
+                                    <barButtonItem systemItem="refresh" id="TIi-7z-gRc" userLabel="Refresh"/>
+                                    <barButtonItem systemItem="add" id="lmI-Ba-EoX" userLabel="Add"/>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-QW-ERf">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PPc-PH-AMS" firstAttribute="top" secondItem="JpH-m3-BZn" secondAttribute="top" id="6ox-Sl-oYF"/>
+                            <constraint firstItem="ePZ-1a-jTX" firstAttribute="top" secondItem="PPc-PH-AMS" secondAttribute="top" id="2g0-3A-1aZ"/>
+                            <constraint firstItem="ODj-QW-ERf" firstAttribute="top" secondItem="ePZ-1a-jTX" secondAttribute="bottom" id="FBg-cC-sua"/>
                             <constraint firstItem="ODj-QW-ERf" firstAttribute="leading" secondItem="PPc-PH-AMS" secondAttribute="leading" id="ICt-wa-KHJ"/>
                             <constraint firstItem="PPc-PH-AMS" firstAttribute="trailing" secondItem="ODj-QW-ERf" secondAttribute="trailing" id="L4G-ID-ge0"/>
-                            <constraint firstItem="ODj-QW-ERf" firstAttribute="top" secondItem="JpH-m3-BZn" secondAttribute="bottom" id="dTy-rw-YFC"/>
+                            <constraint firstItem="ePZ-1a-jTX" firstAttribute="trailing" secondItem="PPc-PH-AMS" secondAttribute="trailing" id="XFw-Dg-Abe"/>
                             <constraint firstItem="ODj-QW-ERf" firstAttribute="bottom" secondItem="PPc-PH-AMS" secondAttribute="bottom" id="gJA-ff-Gn2"/>
                             <constraint firstItem="ODj-QW-ERf" firstAttribute="centerX" secondItem="bp1-lH-eMG" secondAttribute="centerX" id="m3X-tW-LR4"/>
-                            <constraint firstItem="JpH-m3-BZn" firstAttribute="leading" secondItem="PPc-PH-AMS" secondAttribute="leading" id="rO3-ln-zKZ"/>
-                            <constraint firstItem="JpH-m3-BZn" firstAttribute="trailing" secondItem="PPc-PH-AMS" secondAttribute="trailing" id="vhC-a7-9Rp"/>
+                            <constraint firstItem="ePZ-1a-jTX" firstAttribute="leading" secondItem="PPc-PH-AMS" secondAttribute="leading" id="vyY-nr-mFI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PPc-PH-AMS"/>
                     </view>

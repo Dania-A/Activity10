@@ -36,24 +36,22 @@ class LoginViewController: UIViewController {
         } else {
             
             APICalls.login(username, password){(loginSuccess, key) in
-                //TODO: Execute the entire code inside the completion body on the main thread asynchronously
-
+                //TODO: Execute the entire code inside the completion body on the main thread asynchronous
                 if !loginSuccess {
-                        let loginAlert = UIAlertController(title: "Erorr logging in", message: "incorrect email or password", preferredStyle: .alert )
-                        
-                        loginAlert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
-                            return
-                        }))
-                        self.present(loginAlert, animated: true, completion: nil)
-                    } else {
-                        
-                        let controller = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                        self.navigationController!.pushViewController(controller, animated: true)
-                        //In on the map, you need to use the key to call a function in the API class to get the user's first name and last name, but here we're just printing the key. So, in your app, instead of printing it, you'll call that function and be passing it as an argument to that function.
-                        print ("the key is \(key)")
-                    }
+                    let loginAlert = UIAlertController(title: "Erorr logging in", message: "incorrect email or password", preferredStyle: .alert )
+                    
+                    loginAlert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
+                        return
+                    }))
+                    self.present(loginAlert, animated: true, completion: nil)
+                } else {
+                    
+                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                    self.navigationController!.pushViewController(controller, animated: true)
+                    //In on the map, you need to use the key to call a function in the API class to get the user's first name and last name, but here we're just printing the key. So, in your app, instead of printing it, you'll call that function and be passing it as an argument to that function.
+                    print ("the key is \(key)")
+                }
             }
         }
     }
 }
-
