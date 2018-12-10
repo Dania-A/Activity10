@@ -37,8 +37,10 @@ class APICalls {
                 print (String(data: newData!, encoding: .utf8)!)
                 
                 //TODO: Get an object based on the received data in JSON format
+                let loginJsonObject = try! JSONSerialization.jsonObject(with: newData!, options: [])
                 
                 //TODO: Convert the object to a dictionary and call it loginDictionary
+                let loginDictionary = loginJsonObject as? [String : Any]
                 
                 //Get the unique key of the user
                 let accountDictionary = loginDictionary? ["account"] as? [String : Any]
@@ -46,6 +48,7 @@ class APICalls {
                 completion (true, uniqueKey)
             } else {
                 //TODO: call the completion handler properly
+                completion (false, "")
             }
             
         }
@@ -77,13 +80,16 @@ class APICalls {
                 let jsonObject = try! JSONSerialization.jsonObject(with: data!, options: [])
                 
                 //TODO: Convert jsonObject to a dictionary
+                guard let jsonDictionary = jsonObject as? [String : Any] else {return}
                 
-                //TODO: get the locations (associated with the key "results") and store it into a constant named resultArray
+                //TODO: get the locations (associated with the key “results") and store it into a constant named resultArray
+                let resultsArray = jsonDictionary["results"] as? [[String:Any]]
                 
                 //Check if the result array is nil using guard let, if it's return, otherwise continue
                 guard let array = resultsArray else {return}
                 
                 //TODO: Convert the array above into a valid JSON Data object (so you can use that object to decode it into an array of student locations) and name it dataObject
+                let dataObject = try! JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
                 
                 //Use JSONDecoder to convert dataObject to an array of structs
                 let studentsLocations = try! JSONDecoder().decode([StudentLocation].self, from: dataObject)
@@ -92,6 +98,7 @@ class APICalls {
                 completion (studentsLocations)
             }
         }
+        
         task.resume()
     }
 }

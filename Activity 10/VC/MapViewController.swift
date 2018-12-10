@@ -35,10 +35,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let coords = CLLocationCoordinate2D (latitude: lat, longitude: long)
                     
                     //TODO: Get the media URL and call it mediaURL, if it's nil its value should be " ", for that use Nil-Coalescing Operator (??)
+                    let mediaURL = locationStruct.mediaURL ?? " "
                     
                     //TODO: Get the first name and call it first, if it's nil its value should be " ", for that use Nil-Coalescing Operator (??)
+                    let first = locationStruct.firstName ?? " "
                     
                     //TODO: Get the last name and call it last, if it's nil its value should be " ", for that use Nil-Coalescing Operator (??)
+                    let last = locationStruct.lastName ?? " "
                     
                     // Here we create the annotation and set its coordiate, title, and subtitle properties
                     let annotation = MKPointAnnotation()
@@ -52,7 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.MapView.addAnnotations (annotations)
             }
             
-        } //end getAllLocations
+        }//end getAllLocations
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
