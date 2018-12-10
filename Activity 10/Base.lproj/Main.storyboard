@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yd6-rS-Qn0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="2cJ-7t-SBe">
+            <objects>
+                <navigationController id="Yd6-rS-Qn0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="90r-fK-xsH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="E8o-f8-OdF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynO-dM-yuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-414" y="27"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Activity_10_Solution" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOJ-wt-IbK" userLabel="Password Text Field">
+                                <rect key="frame" x="35" y="292" width="305" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeT-s5-VGu" userLabel="Username Text Field">
+                                <rect key="frame" x="35" y="248" width="305" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Y-Cc-cem" userLabel="Login Label">
+                                <rect key="frame" x="125" y="201" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-LG-o8D" userLabel="Login Button">
+                                <rect key="frame" x="35" y="372" width="305" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RAE-sx-QS2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TeT-s5-VGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="1sT-7X-pdB"/>
+                            <constraint firstItem="TeT-s5-VGu" firstAttribute="top" secondItem="u6Y-Cc-cem" secondAttribute="bottom" constant="26" id="6Me-O0-2jn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZOJ-wt-IbK" secondAttribute="trailing" constant="35" id="Lb0-XH-Cyd"/>
+                            <constraint firstItem="u6Y-Cc-cem" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U3k-U6-EZL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="u6Y-Cc-cem" secondAttribute="bottom" constant="-158" id="Vic-dm-g3O"/>
+                            <constraint firstItem="F0C-LG-o8D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="dVU-MB-2Zk"/>
+                            <constraint firstItem="F0C-LG-o8D" firstAttribute="top" secondItem="ZOJ-wt-IbK" secondAttribute="bottom" constant="50" id="dvQ-ua-1my"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F0C-LG-o8D" secondAttribute="trailing" constant="35" id="eao-q4-agv"/>
+                            <constraint firstItem="ZOJ-wt-IbK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="ngs-SW-0rs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TeT-s5-VGu" secondAttribute="trailing" constant="35" id="oTL-ud-pjl"/>
+                            <constraint firstItem="ZOJ-wt-IbK" firstAttribute="top" secondItem="TeT-s5-VGu" secondAttribute="bottom" constant="14" id="oZP-wd-7zf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2dD-0b-fIt"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="ZOJ-wt-IbK" id="heA-8q-rLC"/>
+                        <outlet property="usernameTextField" destination="TeT-s5-VGu" id="OIT-kD-Qz0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="27"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="3vy-nh-4u3">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="JOV-gd-fQx" customClass="MapViewController" customModule="Activity_10_Solution" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bp1-lH-eMG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpH-m3-BZn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nEv-Th-0i5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Studying Locations" id="jT4-uy-D3Q">
+                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="dQj-JK-WnV" userLabel="Logout"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="1FN-vm-81R"/>
+                                            <barButtonItem systemItem="refresh" id="kIO-w0-kU7"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-QW-ERf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PPc-PH-AMS" firstAttribute="top" secondItem="JpH-m3-BZn" secondAttribute="top" id="6ox-Sl-oYF"/>
+                            <constraint firstItem="ODj-QW-ERf" firstAttribute="leading" secondItem="PPc-PH-AMS" secondAttribute="leading" id="ICt-wa-KHJ"/>
+                            <constraint firstItem="PPc-PH-AMS" firstAttribute="trailing" secondItem="ODj-QW-ERf" secondAttribute="trailing" id="L4G-ID-ge0"/>
+                            <constraint firstItem="ODj-QW-ERf" firstAttribute="top" secondItem="JpH-m3-BZn" secondAttribute="bottom" id="dTy-rw-YFC"/>
+                            <constraint firstItem="ODj-QW-ERf" firstAttribute="bottom" secondItem="PPc-PH-AMS" secondAttribute="bottom" id="gJA-ff-Gn2"/>
+                            <constraint firstItem="ODj-QW-ERf" firstAttribute="centerX" secondItem="bp1-lH-eMG" secondAttribute="centerX" id="m3X-tW-LR4"/>
+                            <constraint firstItem="JpH-m3-BZn" firstAttribute="leading" secondItem="PPc-PH-AMS" secondAttribute="leading" id="rO3-ln-zKZ"/>
+                            <constraint firstItem="JpH-m3-BZn" firstAttribute="trailing" secondItem="PPc-PH-AMS" secondAttribute="trailing" id="vhC-a7-9Rp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PPc-PH-AMS"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="MapView" destination="ODj-QW-ERf" id="EKi-FM-yO3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oc2-8j-qPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+</document>
