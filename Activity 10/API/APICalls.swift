@@ -50,7 +50,6 @@ class APICalls {
                 //TODO: call the completion handler properly
                 completion (false, "")
             }
-            
         }
         //Start the task
         task.resume()
