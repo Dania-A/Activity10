@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Note how the properties' names in the struct are exactly equal to the keys names in the JSON response. This is necessary so we can eventually decode the response to an array of objects of this struct
+//Note how the properties' names in the struct are exactly equal to the keys names in the JSON response. This is necessary so we can eventually decode the response to an array of objects of this struct.
 
 struct StudentLocation : Codable {
     
