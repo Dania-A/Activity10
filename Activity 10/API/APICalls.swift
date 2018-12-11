@@ -10,7 +10,7 @@ import Foundation
 
 class APICalls {
     
-    static func login (_ username : String!, _ password : String!, completion: @escaping (Bool, String)->()) {
+    static func login (_ username : String!, _ password : String!, completion: @escaping (Bool, String, Error?)->()) {
         
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "POST"
@@ -20,12 +20,21 @@ class APICalls {
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error…
+            if error != nil {
+                // TODO: Call the completion handler and send the error so it can be handled on the UI, also call "return" so the code next to this block won't be executed
+                completion (false, "", error)
                 return
             }
             
             //Get the status code to check if the response is OK or not
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {return}
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                
+                // TODO: Call the completion handler and send the error so it can be handled on the UI, also call "return" so the code next to this block won't be executed (you need to call return in let guard's else body anyway)
+                let statusCodeError = NSError(domain: NSURLErrorDomain, code: 0, userInfo: nil)
+                
+                completion (false, "", statusCodeError)
+                return
+            }
             
             if statusCode >= 200  && statusCode < 300 {
                 
@@ -45,17 +54,17 @@ class APICalls {
                 //Get the unique key of the user
                 let accountDictionary = loginDictionary? ["account"] as? [String : Any]
                 let uniqueKey = accountDictionary? ["key"] as? String ?? " "
-                completion (true, uniqueKey)
+                completion (true, uniqueKey, nil)
             } else {
                 //TODO: call the completion handler properly
-                completion (false, "")
+                completion (false, "", nil)
             }
         }
         //Start the task
         task.resume()
     }
     
-    static func getAllLocations (completion: @escaping ([StudentLocation]?) -> ()) {
+    static func getAllLocations (completion: @escaping ([StudentLocation]?, Error?) -> ()) {
         var request = URLRequest (url: URL (string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=-updatedAt")!)
         
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -65,13 +74,21 @@ class APICalls {
         let session = URLSession.shared
         let task = session.dataTask(with: request) {data, response, error in
             if error != nil {
+                // TODO: Call the completion handler and send the error so it can be handled on the UI, also call "return" so the code next to this block won't be executed
+                completion (nil, error)
                 return
             }
             
             //Print the data to see it and know you'll parse it (this can be removed after you complete building the app)
             print (String(data: data!, encoding: .utf8)!)
             
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {return}
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                // TODO: Call the completion handler and send the error so it can be handled on the UI, also call "return" so the code next to this block won't be executed (you need to call return in let guard's else body anyway)
+                let statusCodeError = NSError(domain: NSURLErrorDomain, code: 0, userInfo: nil)
+                
+                completion (nil, statusCodeError)
+                return
+            }
             
             if statusCode >= 200 && statusCode < 300 {
                 
@@ -93,8 +110,7 @@ class APICalls {
                 //Use JSONDecoder to convert dataObject to an array of structs
                 let studentsLocations = try! JSONDecoder().decode([StudentLocation].self, from: dataObject)
                 
-                
-                completion (studentsLocations)
+                completion (studentsLocations, nil)
             }
         }
         

@@ -19,12 +19,30 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        APICalls.getAllLocations () {(studentsLocations) in
+        APICalls.getAllLocations () {(studentsLocations, error) in
             DispatchQueue.main.async {
+                
+                if error != nil {
+                    let errorAlert = UIAlertController(title: "Erorr performing request", message: "There was an error performing your request", preferredStyle: .alert )
+                    
+                    errorAlert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
+                        return
+                    }))
+                    self.present(errorAlert, animated: true, completion: nil)
+                    return
+                }
                 
                 var annotations = [MKPointAnnotation] ()
                 
-                guard let locationsArray = studentsLocations else {return}
+                guard let locationsArray = studentsLocations else {
+                    let locationsErrorAlert = UIAlertController(title: "Erorr loading locations", message: "There was an error loading locations", preferredStyle: .alert )
+                    
+                    locationsErrorAlert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
+                        return
+                    }))
+                    self.present(locationsErrorAlert, animated: true, completion: nil)
+                    return
+                }
                 
                 //Loop through the array of structs and get locations data from it so they can be displayed on the map
                 for locationStruct in locationsArray {
@@ -50,7 +68,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotation.subtitle = mediaURL
                     
                     annotations.append (annotation)
-                    
                 }
                 self.MapView.addAnnotations (annotations)
             }
